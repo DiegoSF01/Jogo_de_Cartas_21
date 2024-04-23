@@ -557,11 +557,6 @@ namespace Jogo_de_Cartas_21
                 {
                     cartas1();
 
-                    Console.WriteLine("||Jogador 1||");
-                    Console.WriteLine("Você possui " + Pontuacao1 + " pontos");
-                    Console.WriteLine("Deseja pegar mais cartas (Sim = S / Não = N): ");
-                    mais_carta = Console.ReadLine().ToUpper();
-
                     if (Pontuacao1 > 21)
                     {
                         mais_carta = "N";
@@ -570,7 +565,19 @@ namespace Jogo_de_Cartas_21
                         Console.WriteLine("||Jogador 1||");
                         Console.WriteLine("Você ||PERDEU|| por fazer mais de 21 pontos");
                         Console.WriteLine("Com " + Pontuacao2 + " pontos ||Jogador 2 VENCEU||");
+
+                        mais_carta = "N";
+
                     }
+                    else
+                    {
+
+                        Console.WriteLine("||Jogador 1||");
+                        Console.WriteLine("Você possui " + Pontuacao1 + " pontos");
+                        Console.WriteLine("Deseja pegar mais cartas (Sim = S / Não = N): ");
+                        mais_carta = Console.ReadLine().ToUpper();
+                    }
+                    
                 }
 
                 Console.WriteLine("");
@@ -583,11 +590,6 @@ namespace Jogo_de_Cartas_21
                 {
                     cartas2();
 
-                    Console.WriteLine("||Jogador 2||");
-                    Console.WriteLine("Você possui " + Pontuacao2 + " pontos");
-                    Console.WriteLine("Deseja pegar mais cartas (Sim = S / Não = N): ");
-                    mais_carta = Console.ReadLine().ToUpper();
-
                     if (Pontuacao2 > 21)
                     {
                         mais_carta = "N";
@@ -596,21 +598,37 @@ namespace Jogo_de_Cartas_21
                         Console.WriteLine("||Jogador 2||");
                         Console.WriteLine("Você ||PERDEU|| por fazer mais de 21 pontos");
                         Console.WriteLine("Com " + Pontuacao1 + " pontos ||Jogador 1 VENCEU||");
+
+                        mais_carta = "N";
+                    }
+                    else
+                    {
+                        Console.WriteLine("||Jogador 2||");
+                        Console.WriteLine("Você possui " + Pontuacao2 + " pontos");
+                        Console.WriteLine("Deseja pegar mais cartas (Sim = S / Não = N): ");
+                        mais_carta = Console.ReadLine().ToUpper();
                     }
                 }
 
-
-
-                if (Pontuacao1 > 21)
+                if (Pontuacao1 > Pontuacao2 && Pontuacao1 <= 21)
                 {
-                    
+                    Console.WriteLine("||Jogador 1 VENCEU||");
+                    Console.WriteLine("Por fazer mais que o adversário!");
+                }
+                else if (Pontuacao2 > Pontuacao1 && Pontuacao2 <= 21)
+                {
+                    Console.WriteLine("||Jogador 1 VENCEU||");
+                    Console.WriteLine("Por fazer mais que o adversário!");
+                }
+                else if (Pontuacao1 == Pontuacao2)
+                {
+                    Console.WriteLine("||Jogador 1 e 2 EMPATARAM||");
+                    Console.WriteLine("Por ambos fazer a mesma pontuação!");
                 }
 
-                Console.WriteLine("Deseja continuar jogando (Sim = S / Não = N): ");
-                Iniciar = Console.ReadLine().ToUpper();
+                Console.ReadKey();
 
             }
-
         }
     }
 }
