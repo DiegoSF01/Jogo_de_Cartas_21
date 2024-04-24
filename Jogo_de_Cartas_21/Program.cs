@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Jogo_de_Cartas_21
@@ -526,11 +529,10 @@ namespace Jogo_de_Cartas_21
             Console.WriteLine("Vamos Iniciar [Sim = S / Não = N]: ");
             string Iniciar = Console.ReadLine().ToUpper();
 
+            Console.Clear();
+
             while (Iniciar == "S")
             {
-
-                
-
                 Console.WriteLine("");
                 Console.WriteLine("||Jogador 1||");
 
@@ -566,7 +568,10 @@ namespace Jogo_de_Cartas_21
                         Console.WriteLine("Você ||PERDEU|| por fazer mais de 21 pontos");
                         Console.WriteLine("Com " + Pontuacao2 + " pontos ||Jogador 2 VENCEU||");
 
-                        mais_carta = "N";
+                        
+
+                        Thread.Sleep(3000);
+                        Process.GetCurrentProcess().Kill();
 
                     }
                     else
@@ -582,7 +587,7 @@ namespace Jogo_de_Cartas_21
 
                 Console.WriteLine("");
                 Console.WriteLine("||Jogador 2||");
-                Console.WriteLine("Você possui " + Pontuacao1 + " pontos.");
+                Console.WriteLine("Você possui " + Pontuacao2 + " pontos.");
                 Console.WriteLine("Deseja pegar mais cartas (Sim = S / Não = N): ");
                 mais_carta = Console.ReadLine().ToUpper();
 
@@ -598,8 +603,6 @@ namespace Jogo_de_Cartas_21
                         Console.WriteLine("||Jogador 2||");
                         Console.WriteLine("Você ||PERDEU|| por fazer mais de 21 pontos");
                         Console.WriteLine("Com " + Pontuacao1 + " pontos ||Jogador 1 VENCEU||");
-
-                        mais_carta = "N";
                     }
                     else
                     {
